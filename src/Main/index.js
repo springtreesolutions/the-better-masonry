@@ -28,6 +28,9 @@ export default class Masonry extends React.Component {
     return (
       <ScrollView
         onScroll={e => {
+          if (this.props.onNativeScroll) {
+            this.props.onNativeScroll(e);
+          }
           this.props.setOffset(e.nativeEvent.contentOffset.y);
           let paddingToBottom = 0;
           paddingToBottom += e.nativeEvent.layoutMeasurement.height;
